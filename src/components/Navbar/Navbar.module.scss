@@ -1,0 +1,149 @@
+.header {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	header {
+		width: 1440px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 20px;
+
+		.left {
+			display: flex;
+			align-items: center;
+
+			.logo {
+				margin-right: 125px;
+				h1 {
+					color: rgb(16, 16, 16);
+					font-size: 25px;
+					font-weight: 700;
+					line-height: 30px;
+					text-align: left;
+				}
+			}
+
+			.option {
+				label,
+				option {
+					color: rgb(16, 16, 16);
+					font-size: 15px;
+					font-weight: 500;
+					line-height: 18px;
+					margin-right: 5px;
+				}
+
+				.cross {
+					display: none !important;
+				}
+			}
+		}
+
+		.right {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+
+			button {
+				cursor: pointer;
+				padding: 5px;
+				svg {
+					color: rgb(131, 131, 131);
+				}
+
+				&:nth-child(3) {
+					display: none;
+				}
+
+				&:nth-child(1) {
+					position: relative;
+					span {
+						&:nth-child(1) {
+							position: absolute;
+							width: 15.4px;
+							height: 15.4px;
+							background: rgb(255, 165, 66);
+							border-radius: 50%;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							left: 20px;
+							top: 1px;
+
+							b {
+								color: rgb(255, 255, 255);
+								font-size: 12px;
+								font-weight: 500;
+								line-height: 18px;
+								align-items: center;
+							}
+						}
+					}
+				}
+
+				svg {
+					width: 22px;
+					height: 20px;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		header {
+			width: 100%;
+			padding: 5px 5px;
+
+			.left {
+				.logo {
+					margin-right: 0;
+				}
+				.option {
+					position: fixed;
+					display: flex;
+					width: 100%;
+					height: 100px;
+					left: 0;
+					top: 0;
+					justify-content: center;
+					align-items: center;
+					border: 1px solid #c8c8c8;
+					background-color: #fff;
+					z-index: 999;
+					transform: translateY(0);
+					transition: all 0.4s ease-in-out;
+
+					.cross {
+						position: absolute;
+						bottom: -30px;
+						display: block !important;
+						background-color: transparent;
+						cursor: pointer;
+						z-index: 999;
+
+						svg {
+							width: 22px;
+							height: 20px;
+							color: #fff;
+						}
+					}
+				}
+
+				.close {
+					transform: translateY(-200%);
+					transition: all 0.4s ease-in-out;
+				}
+			}
+
+			.right {
+				button {
+					&:nth-child(3) {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

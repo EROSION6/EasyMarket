@@ -1,0 +1,51 @@
+.cart {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.image {
+		display: flex;
+		justify-content: center;
+		img {
+			width: 509.88px;
+			height: 415px;
+		}
+	}
+
+	.text {
+		width: 510px;
+		text-align: center;
+		margin-top: 20px;
+		h2 {
+			color: rgb(16, 16, 16);
+			font-size: 30px;
+			font-weight: 500;
+			line-height: 37px;
+		}
+		p {
+			color: rgb(131, 131, 131);
+			font-family: Manrope;
+			font-size: 20px;
+			font-weight: 600;
+			margin-bottom: 20px;
+		}
+	}
+
+	@media (max-width: 550px) {
+		.image {
+			img {
+				width: 80%;
+				height: 350px;
+			}
+		}
+
+		.text {
+			width: 100%;
+			padding: 0 20px;
+			margin-top: 0;
+		}
+	}
+}

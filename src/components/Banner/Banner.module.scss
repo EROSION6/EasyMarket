@@ -19,6 +19,8 @@
 			font-weight: 600;
 			line-height: 50px;
 			text-align: center;
+
+
 		}
 	}
 
@@ -35,6 +37,7 @@
 	@media (max-width: 1440px) {
 		width: 100%;
 	}
+
 	@media (max-width: 1024px) {
 		gap: 0px;
 		.title {

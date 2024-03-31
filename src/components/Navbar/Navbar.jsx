@@ -20,11 +20,11 @@ const option = [
 
 export const Navbar = () => {
 	const [isOpen, setOpen] = useState(false)
-	const { carts } = useContext(Context)
+	const { cart } = useContext(Context)
 
 	const navigate = useNavigate()
 
-	const totalCount = carts.reduce((acc, count) => acc + count.count, 0)
+	const totalCount = cart.reduce((acc, count) => acc + count.count, 0)
 
 	return (
 		<div className={styles.header}>

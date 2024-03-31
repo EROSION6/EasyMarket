@@ -1,39 +1,35 @@
-import React, { useContext } from 'react'
-import { BsCartX } from 'react-icons/bs'
-import { GoPlus } from 'react-icons/go'
-import { HiOutlineMinusSm } from 'react-icons/hi'
-import { Context } from '../../../Context/Cart'
-import styles from './Card.module.scss'
+import React, { useContext } from 'react';
+import { BsCartX } from 'react-icons/bs';
+import { GoPlus } from 'react-icons/go';
+import { HiOutlineMinusSm } from 'react-icons/hi';
+import { Context } from '../../../Context/Cart';
+import styles from './Card.module.scss';
 
 export const Card = ({ id, title, imageUrl, price, count }) => {
-	const { setCarts, handleDeleteCard } = useContext(Context)
+	const { setCart, handleDeleteCardCart } = useContext(Context);
 
 	const increment = id => {
-		setCarts(carts =>
+		setCart(carts =>
 			carts.map(item =>
-				id === item.id
-					? { ...item, count: item.count < 10 ? item.count + 1 : 1 }
-					: item
-			)
-		)
-	}
+				id === item.id ? { ...item, count: item.count < 10 ? item.count + 1 : 1 } : item,
+			),
+		);
+	};
 
 	const decrement = id => {
-		setCarts(carts =>
+		setCart(carts =>
 			carts.map(item =>
-				id === item.id
-					? { ...item, count: item.count > 1 ? item.count - 1 : 1 }
-					: item
-			)
-		)
-	}
+				id === item.id ? { ...item, count: item.count > 1 ? item.count - 1 : 1 } : item,
+			),
+		);
+	};
 
 	return (
 		<article className={styles.card}>
 			<div className={styles.top}>
 				<div className={styles.images}>
 					<img src={imageUrl} alt={title} />
-					<button onClick={() => handleDeleteCard(id)}>
+					<button onClick={() => handleDeleteCardCart(id)}>
 						<BsCartX />
 					</button>
 				</div>
@@ -55,5 +51,5 @@ export const Card = ({ id, title, imageUrl, price, count }) => {
 				<span>{price * count} ₸</span>
 			</div>
 		</article>
-	)
-}
+	);
+};

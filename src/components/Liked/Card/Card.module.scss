@@ -1,11 +1,10 @@
 .card {
 	position: relative;
-	width: 100%;
+	width: 310px;
 	height: auto;
 	border-radius: 30px;
 	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 	background: rgb(255, 255, 255);
-	overflow: hidden;
 
 	.content {
 		padding: 20px;
@@ -51,25 +50,14 @@
 		}
 	}
 
-	.hover {
-		position: absolute;
+	@media (max-width: 640px) {
 		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0 20px;
-		transform: translateY(100%);
-		transition: transform 0.5s ease;
-
-		button {
-			width: 100%;
-		}
-	}
-
-	&:hover {
-		.hover {
-			transform: translateY(-100%);
-			transition: transform 0.5s ease;
+		.content {
+			.images {
+				img {
+					height: 170px;
+				}
+			}
 		}
 	}
 }

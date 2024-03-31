@@ -1,0 +1,12 @@
+.likeds {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@media (max-width: 640px) {
+		height: auto;
+		margin-bottom: 20px;
+	}
+}

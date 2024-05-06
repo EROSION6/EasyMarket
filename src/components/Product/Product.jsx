@@ -1,32 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { Card } from './Card/Card';
-import styles from './Product.module.scss';
+import React, { useEffect, useState } from 'react'
+import { Card } from './Card/Card'
+import styles from './Product.module.scss'
 
 const Product = () => {
-	const [product, setProduct] = useState([]);
-	const [isLoading, setLoading] = useState(false);
+	const [product, setProduct] = useState([])
+	const [isLoading, setLoading] = useState(true)
 
 	useEffect(() => {
 		const fetchCard = async () => {
 			try {
-				setLoading(true);
-				const response = await fetch('https://d10f7fc00f084b36.mokky.dev/cart');
+				const response = await fetch('https://d10f7fc00f084b36.mokky.dev/cart')
 
 				if (!response.ok) {
-					throw new Error('Product was successfully fetched successfully from ' + response.message);
+					throw new Error('An error occurred when receiving goods')
 				}
-
-				setProduct(await response.json());
+				setProduct(await response.json())
 			} catch {
-				setLoading(false);
+				setLoading(false)
 			}
-		};
-		fetchCard();
-	}, []);
+		}
+		fetchCard()
+	}, [])
 
-	if (!isLoading) {
-		return <div style={{ fontSize: '32px', fontWeight: 'bold' }}>Loading...</div>;
-	}
+	if (!isLoading) return <div style={{ fontSize: '32px', fontWeight: 'bold' }}>Loading...</div>
 
 	return (
 		<div className={styles.blockCard}>
@@ -34,7 +30,7 @@ const Product = () => {
 				<Card key={card.id} {...card} />
 			))}
 		</div>
-	);
-};
+	)
+}
 
-export default Product;
+export default Product
